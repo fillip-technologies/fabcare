@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
     ];
 
     /**
@@ -44,5 +46,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function billingitem()
+    {
+        return $this->hasMany(BillingItesm::class);
+    }
+
+    public function weightBill(){
+        return $this->hasMany(WeightBillDetail::class);
     }
 }
